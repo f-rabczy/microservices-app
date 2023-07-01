@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    image: frabczyn/erpmes:postgres
+    image: erppostgres
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -11,34 +11,34 @@ services:
     volumes:
       - ./create_databases.sql:/docker-entrypoint-initdb.d/create_databases.sql
   eureka-server:
-    image: frabczyn/erpmes:eureka64
+    image: eureka64
     ports:
       - "9761:9761"
     depends_on:
       - postgres
   shop:
-    image: frabczyn/erpmes:shop64
+    image: frabczyn/erpmes:erpshop64
     ports:
       - "9080:9080"
     depends_on:
     - eureka-server
     - postgres
   communication:
-    image: frabczyn/erpmes:communication64
+    image: frabczyn/erpmes:erpcommunication64
     ports:
       - "9081:9081"
     depends_on:
       - eureka-server
       - postgres
   staff:
-    image: frabczyn/erpmes:staff64
+    image: frabczyn/erpmes:erpstaff64
     ports:
       - "9082:9082"
     depends_on:
       - eureka-server
       - postgres
   production:
-    image: frabczyn/erpmes:production64
+    image: frabczyn/erpmes:erpproduction64
     ports:
       - "9083:9083"
     depends_on:
