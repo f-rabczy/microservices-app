@@ -11,7 +11,7 @@ services:
     volumes:
       - ./create_databases.sql:/docker-entrypoint-initdb.d/create_databases.sql
   eureka-server:
-    image: eureka64
+    image: frabczyn/erpmes:erpeureka64
     ports:
       - "9761:9761"
     depends_on:
