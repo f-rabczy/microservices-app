@@ -1,6 +1,7 @@
 version: "3"
 services:
   postgres:
+    platform: linux/amd64
     image: frabczyn/erpmes:erppostgres
     restart: always
     environment:
