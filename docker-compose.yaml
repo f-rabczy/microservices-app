@@ -20,7 +20,7 @@ services:
       - postgres
   shop:
     platform: linux/amd64
-    image: frabczyn/erpmes:erpshop64
+    image: frabczyn/erpmes:erpshop64v2
     ports:
       - "9080:9080"
     depends_on:
