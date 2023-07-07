@@ -18,19 +18,16 @@ services:
       - "9761:9761"
     depends_on:
       - postgres
-  staff:
-    platform: linux/amd64
-    image: frabczyn/erpmes:erpstaff64
-    ports:
-      - "9082:9082"
-    depends_on:
-      - eureka-server
-      - postgres
-  production:
-    platform: linux/amd64
-    image: frabczyn/erpmes:erpproduction64
-    ports:
-      - "9083:9083"
-    depends_on:
-      - eureka-server
-      - postgres
+  shop:
+      platform: linux/amd64
+      image: frabczyn/erpmes:erpshop64v2
+      ports:
+        - "9080:9080"
+      depends_on:
+        - eureka-server
+        - postgres
+  communication:
+      platform: linux/amd64
+      image: frabczyn/erpmes:erpcommunication64v2
+      ports:
+        - "9081:9081"
