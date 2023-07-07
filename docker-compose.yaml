@@ -28,7 +28,7 @@ services:
     - postgres
   communication:
     platform: linux/amd64
-    image: frabczyn/erpmes:erpcommunication64
+    image: frabczyn/erpmes:erpcommunication64v2
     ports:
       - "9081:9081"
     depends_on:
